@@ -1,0 +1,16 @@
+{
+  "name": "Dubrovačke ljetne igre",
+  "short_name": "DLI",
+  "description": "Najpoznatiji festival kazališta i umjetnosti u Dubrovniku.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4285f4",
+  "icons": [
+    {
+      "src": "images/icon.png",  
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
