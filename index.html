@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dubrovačke ljetne igre</title>
+    <title>75. Dubrovačke ljetne igre</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="manifest" href="/manifest.json" />
   </head>
@@ -14,10 +14,18 @@
     ></script>
     <script
       type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"
+    ></script>
+    <script
+      type="module"
       src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"
     ></script>
 
-    <!-- Your app.js script -->
     <script type="module" src="app.js"></script>
     <div id="app">
       <h1>Dubrovačke ljetne igre</h1>
@@ -27,24 +35,16 @@
       <div id="firebase-images-container"></div>
     </div>
 
-
-    <button id="captureButton">Capture Image</button>
-    <img id="capturedImage" alt="Captured Image" />
+    <button id="captureButton">Prenesi sliku:</button>
+    <img id="capturedImage" alt="Slika nije odabrana" />
 
     <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("service-worker.js")
-          .then((registration) => {
-            console.log(
-              "Service Worker registered with scope:",
-              registration.scope
-            );
-          })
-          .catch((error) => {
-            console.error("Service Worker registration failed:", error);
-          });
-      }
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then((reg) => console.log("Service Worker registered.", reg))
+        .catch((err) => {
+          console.error("Service Worker registration failed:", err);
+        });
     </script>
   </body>
 </html>
