@@ -30,18 +30,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     const firebaseImages = await fetchFirebaseImages();
 
     const captureButton = document.getElementById('captureButton');
-    const capturedImage = document.getElementById('capturedImage');
+
+    const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+    const imagePreview = document.getElementById('imagePreview');
+    const confirmButton = document.getElementById('confirmButton');
 
     captureButton.addEventListener('click', () => {
         captureImage()
             .then(imageData => {
-                capturedImage.src = imageData;
-                uploadImage(imageData);
+                displayCapturedImage(imageData);
+
+                imagePreviewContainer.style.display = 'block';
+                confirmButton.addEventListener('click', () => {
+                    uploadImage(imageData);
+                    imagePreviewContainer.style.display = 'none';
+                });
             })
             .catch(error => {
                 console.error('Error capturing image:', error);
             });
     });
+
+    function displayCapturedImage(imageData) {
+        imagePreview.src = imageData;
+    }
 
 
     displayData(dli, hardcodedImages, firebaseImages);

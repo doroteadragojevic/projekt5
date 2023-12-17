@@ -36,7 +36,15 @@
     </div>
 
     <button id="captureButton">Prenesi sliku:</button>
-    <img id="capturedImage" alt="Slika nije odabrana" />
+
+    <div id="imagePreviewContainer" style="display: none">
+      <img
+        id="imagePreview"
+        alt="Vaša slika"
+        style="max-width: 100%; height: auto"
+      />
+      <button id="confirmButton">Potvrdi prijenos</button>
+    </div>
 
     <script>
       navigator.serviceWorker
